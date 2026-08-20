@@ -1,0 +1,1315 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AutoCare | Vehicle Service Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="loginScreen" class="login-shell">
+
+    <div class="login-card">
+
+        <div class="login-brand">
+
+            <div class="login-brand-icon">🚗</div>
+
+            <div>
+                <span class="login-kicker">VEHICLE SERVICE</span>
+                <h1>AutoCare</h1>
+            </div>
+
+        </div>
+
+        <div class="login-header">
+            <span class="eyebrow">SYSTEM ACCESS</span>
+            <h2>Welcome back</h2>
+            <p>Sign in to manage customers, vehicles, bookings and service operations.</p>
+        </div>
+
+        <form id="loginForm" class="login-form">
+
+            <div class="form-group login-field">
+                <label for="username">Username</label>
+                <input id="username" type="text" placeholder="Enter username" value="admin" required>
+            </div>
+
+            <div class="form-group login-field">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Enter password" value="admin123" required>
+            </div>
+
+            <div class="login-meta">
+                <label class="remember-me">
+                    <input id="rememberMe" type="checkbox">
+                    <span>Remember me</span>
+                </label>
+                <span>Demo account only</span>
+            </div>
+
+            <button type="submit" class="login-button">Sign In</button>
+
+            <div class="demo-credentials">
+                <span>Demo access</span>
+                <strong>admin / admin123</strong>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div id="appShell" class="app" style="display: none;">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🚗
+            </div>
+
+            <div class="logo-text">
+                <h2>AutoCare</h2>
+                <span>Service Management</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-status">
+            <span class="status-dot"></span>
+            <span>System Online</span>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <!-- OVERVIEW -->
+
+            <div class="nav-group">
+
+                <div class="nav-section">
+                    <span>OVERVIEW</span>
+                </div>
+
+                <a href="#"
+                   class="nav-item active"
+                   onclick="showPage('dashboardPage','Dashboard','Vehicle Service Management System',this); return false;">
+
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- MANAGEMENT -->
+
+            <div class="nav-group">
+
+                <div class="nav-section">
+                    <span>MANAGEMENT</span>
+                </div>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('customersPage','Customers','Manage customer information',this); loadCustomersPage(); return false;">
+
+                    <span class="nav-icon">👤</span>
+                    <span>Customers</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('vehiclesPage','Vehicles','Manage vehicle information',this); loadVehiclesPage(); return false;">
+
+                    <span class="nav-icon">🚘</span>
+                    <span>Vehicles</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('bookingsPage','Service Bookings','Manage service appointments',this); loadBookingsPage(); return false;">
+
+                    <span class="nav-icon">📅</span>
+                    <span>Service Bookings</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('invoicesPage','Invoices & Payments','Manage billing and payments',this); loadInvoicesPage(); return false;">
+
+                    <span class="nav-icon">🧾</span>
+                    <span>Invoices & Payments</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('sparePartsPage','Spare Parts','Manage spare parts inventory',this); loadSparePartsPage(); return false;">
+
+                    <span class="nav-icon">🔧</span>
+                    <span>Spare Parts</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE OPERATIONS -->
+
+            <div class="nav-group">
+
+                <div class="nav-section">
+                    <span>SERVICE OPERATIONS</span>
+                </div>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('jobCardsPage','Job Cards','Manage vehicle service job cards',this); loadJobCardsPage(); return false;">
+
+                    <span class="nav-icon">📋</span>
+                    <span>Job Cards</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('technicianNotesPage','Technician Notes','Manage technician notes',this); loadTechnicianNotesPage(); return false;">
+
+                    <span class="nav-icon">👨‍🔧</span>
+                    <span>Technician Notes</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('serviceHistoryPage','Service History','View vehicle service history',this); loadServiceHistoryPage(); return false;">
+
+                    <span class="nav-icon">📜</span>
+                    <span>Service History</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('complaintsPage','Complaints & Feedback','Manage customer feedback and complaints',this); loadComplaintsPage(); return false;">
+
+                    <span class="nav-icon">💬</span>
+                    <span>Complaints</span>
+
+                </a>
+
+
+                <a href="#"
+                   class="nav-item"
+                   onclick="showPage('diagnosticsPage','Diagnostics','View vehicle diagnostic information',this); loadDiagnosticsPage(); return false;">
+
+                    <span class="nav-icon">🔍</span>
+                    <span>Diagnostics</span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="footer-icon">
+                🛠️
+            </div>
+
+            <div>
+                <strong>AutoCare System</strong>
+                <span>Vehicle Service Management</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <div class="mobile-menu">
+                    ☰
+                </div>
+
+                <div>
+
+                    <h1 id="pageTitle">
+                        Dashboard
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        Vehicle Service Management System
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="system-info">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>All Systems</strong>
+                        <span>Operational</span>
+                    </div>
+
+                </div>
+
+                <button id="logoutButton" class="logout-button" type="button">
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <div class="page-container">
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section id="dashboardPage"
+                     class="page dashboard-page">
+
+
+                <div class="welcome-section">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            VEHICLE SERVICE MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Welcome to AutoCare
+                        </h2>
+
+                        <p>
+                            Monitor customers, vehicles, bookings,
+                            billing and service operations from one place.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-illustration">
+                        🚗
+                    </div>
+
+                </div>
+
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon customer-icon">
+                                👤
+                            </div>
+
+                            <span class="stat-label">
+                                CUSTOMER
+                            </span>
+
+                        </div>
+
+                        <div class="stat-content">
+
+                            <p>Total Customers</p>
+
+                            <h2 id="customerCount">
+                                --
+                            </h2>
+
+                        </div>
+
+                        <div class="stat-footer">
+                            Registered customers
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon vehicle-icon">
+                                🚘
+                            </div>
+
+                            <span class="stat-label">
+                                VEHICLE
+                            </span>
+
+                        </div>
+
+                        <div class="stat-content">
+
+                            <p>Total Vehicles</p>
+
+                            <h2 id="vehicleCount">
+                                --
+                            </h2>
+
+                        </div>
+
+                        <div class="stat-footer">
+                            Registered vehicles
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon booking-icon">
+                                📅
+                            </div>
+
+                            <span class="stat-label">
+                                BOOKINGS
+                            </span>
+
+                        </div>
+
+                        <div class="stat-content">
+
+                            <p>Service Bookings</p>
+
+                            <h2 id="bookingCount">
+                                --
+                            </h2>
+
+                        </div>
+
+                        <div class="stat-footer">
+                            Service appointments
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon job-icon">
+                                🔧
+                            </div>
+
+                            <span class="stat-label">
+                                SERVICE
+                            </span>
+
+                        </div>
+
+                        <div class="stat-content">
+
+                            <p>Job Cards</p>
+
+                            <h2 id="jobCardCount">
+                                --
+                            </h2>
+
+                        </div>
+
+                        <div class="stat-footer">
+                            Active service records
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- SYSTEM OVERVIEW -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SYSTEM OVERVIEW
+                        </span>
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+
+                    </div>
+
+                    <span class="live-indicator">
+                        <span></span>
+                        LIVE DATA
+                    </span>
+
+                </div>
+
+
+
+                <div class="content-grid">
+
+
+                    <!-- RECENT CUSTOMERS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div class="panel-title">
+
+                                <div class="panel-icon oracle-icon">
+                                    👤
+                                </div>
+
+                                <div>
+
+                                    <h2>
+                                        Recent Customers
+                                    </h2>
+
+                                    <p>
+                                        Latest customer records
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="customersTable">
+                            Loading customers...
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RECENT JOB CARDS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div class="panel-title">
+
+                                <div class="panel-icon mongo-icon">
+                                    🔧
+                                </div>
+
+                                <div>
+
+                                    <h2>
+                                        Recent Job Cards
+                                    </h2>
+
+                                    <p>
+                                        Latest service activity
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="jobCardsTable">
+                            Loading job cards...
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CUSTOMERS
+            ================================================== -->
+
+            <section id="customersPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CUSTOMER MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Customers
+                        </h2>
+
+                        <p>
+                            Manage customer information and records
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon oracle-icon">
+                                👤
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Customer Records
+                                </h2>
+
+                                <p>
+                                    Complete customer directory
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="allCustomersTable">
+                        Loading customers...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 VEHICLES
+            ================================================== -->
+
+            <section id="vehiclesPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            VEHICLE MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Vehicles
+                        </h2>
+
+                        <p>
+                            Manage registered vehicles and ownership
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon vehicle-panel-icon">
+                                🚘
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Vehicle Records
+                                </h2>
+
+                                <p>
+                                    Registered vehicles and ownership
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="vehiclesTable">
+                        Loading vehicles...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 BOOKINGS
+            ================================================== -->
+
+            <section id="bookingsPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SERVICE MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Service Bookings
+                        </h2>
+
+                        <p>
+                            Manage scheduled and completed service appointments
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon booking-panel-icon">
+                                📅
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Booking Records
+                                </h2>
+
+                                <p>
+                                    Scheduled and completed service bookings
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="bookingsTable">
+                        Loading bookings...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 INVOICES
+            ================================================== -->
+
+            <section id="invoicesPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            BILLING & PAYMENTS
+                        </span>
+
+                        <h2>
+                            Invoices & Payments
+                        </h2>
+
+                        <p>
+                            Manage billing and payment records
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon invoice-icon">
+                                🧾
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Invoices
+                                </h2>
+
+                                <p>
+                                    Service billing records
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="invoicesTable">
+                        Loading invoices...
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon payment-icon">
+                                💳
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Payments
+                                </h2>
+
+                                <p>
+                                    Payment transaction records
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="paymentsTable">
+                        Loading payments...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SPARE PARTS
+            ================================================== -->
+
+            <section id="sparePartsPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            INVENTORY MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Spare Parts
+                        </h2>
+
+                        <p>
+                            Manage spare parts inventory and supplier information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon parts-icon">
+                                🔧
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Inventory
+                                </h2>
+
+                                <p>
+                                    Current spare parts stock
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="sparePartsTable">
+                        Loading spare parts...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 JOB CARDS
+            ================================================== -->
+
+            <section id="jobCardsPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SERVICE OPERATIONS
+                        </span>
+
+                        <h2>
+                            Job Cards
+                        </h2>
+
+                        <p>
+                            Vehicle service job cards and technician activity
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon mongo-icon">
+                                📋
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Job Card Records
+                                </h2>
+
+                                <p>
+                                    Service work currently recorded
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="jobCardsFullTable">
+                        Loading job cards...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TECHNICIAN NOTES
+            ================================================== -->
+
+            <section id="technicianNotesPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            TECHNICIAN OPERATIONS
+                        </span>
+
+                        <h2>
+                            Technician Notes
+                        </h2>
+
+                        <p>
+                            Technician diagnostic and service notes
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon technician-icon">
+                                👨‍🔧
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Technician Records
+                                </h2>
+
+                                <p>
+                                    Service observations and recommendations
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="technicianNotesTable">
+                        Loading technician notes...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SERVICE HISTORY
+            ================================================== -->
+
+            <section id="serviceHistoryPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SERVICE HISTORY
+                        </span>
+
+                        <h2>
+                            Service History
+                        </h2>
+
+                        <p>
+                            View previous services and maintenance activity
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon history-icon">
+                                📜
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Service History
+                                </h2>
+
+                                <p>
+                                    Previous services and maintenance activity
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="serviceHistoryTable">
+                        Loading service history...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 COMPLAINTS
+            ================================================== -->
+
+            <section id="complaintsPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CUSTOMER FEEDBACK
+                        </span>
+
+                        <h2>
+                            Complaints & Feedback
+                        </h2>
+
+                        <p>
+                            Manage customer feedback and service complaints
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon complaint-icon">
+                                💬
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Customer Feedback
+                                </h2>
+
+                                <p>
+                                    Complaints, ratings and resolutions
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="complaintsTable">
+                        Loading complaints...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DIAGNOSTICS
+            ================================================== -->
+
+            <section id="diagnosticsPage"
+                     class="page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            VEHICLE DIAGNOSTICS
+                        </span>
+
+                        <h2>
+                            Diagnostics
+                        </h2>
+
+                        <p>
+                            View diagnostic results, fault information and recommendations
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon diagnostic-icon">
+                                🔍
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Diagnostic Records
+                                </h2>
+
+                                <p>
+                                    Diagnostic results, fault codes and recommendations
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="diagnosticsTable">
+                        Loading diagnostics...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="main-footer">
+
+            <span>
+                AutoCare Vehicle Service Management System
+            </span>
+
+            <span>
+                All Systems Operational
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
+```
